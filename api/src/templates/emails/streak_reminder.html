@@ -1,0 +1,35 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<h2>Don't Break Your Streak! 🔥</h2>
+
+<p>Hey {{ user.display_name }},</p>
+
+<p>You haven't completed today's challenge yet, and we don't want you to lose your streak!</p>
+
+<div class="stats">
+    <div class="stats-item">
+        <div class="stats-value" style="color: #f59e0b;">{{ user.current_day - 1 }}</div>
+        <div class="stats-label">Current Streak</div>
+    </div>
+    <div class="stats-item">
+        <div class="stats-value">Day {{ user.current_day }}</div>
+        <div class="stats-label">Today's Challenge</div>
+    </div>
+</div>
+
+<p>You've worked so hard to get here. Just 5-10 minutes today will keep your momentum going!</p>
+
+<div style="text-align: center; margin: 30px 0;">
+    <a href="{{ frontend_url }}/challenge" class="button">Complete Today's Challenge</a>
+</div>
+
+<div style="background: #fef3c7; padding: 15px; border-left: 4px solid #f59e0b; margin: 20px 0;">
+    <p style="margin: 0;"><strong>💪 Remember:</strong></p>
+    <p style="margin: 5px 0;">Consistency is key to improvement. Even on busy days, a quick 2-minute recording is better than skipping!</p>
+</div>
+
+<p>We believe in you!</p>
+
+<p>Best,<br>The Articulate App Team</p>
+{% endblock %}

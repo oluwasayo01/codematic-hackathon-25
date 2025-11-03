@@ -1,0 +1,30 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<h2>Verify Your Email Address ✉️</h2>
+
+<p>Thanks for signing up! Please verify your email address to activate your account.</p>
+
+<div style="text-align: center; margin: 30px 0;">
+    <a href="{{ verification_link }}" class="button">Verify Email Address</a>
+</div>
+
+<p style="color: #666; font-size: 14px;">
+    Or copy and paste this link into your browser:<br>
+    <a href="{{ verification_link }}" style="color: #667eea; word-break: break-all;">{{ verification_link }}</a>
+</p>
+
+<div style="background: #e7f3ff; padding: 15px; border-left: 4px solid #2196f3; margin: 20px 0;">
+    <p style="margin: 0;"><strong>ℹ️ Why verify?</strong></p>
+    <p style="margin: 5px 0;">Email verification helps us:</p>
+    <ul style="margin: 5px 0;">
+        <li>Keep your account secure</li>
+        <li>Send you important updates about your progress</li>
+        <li>Recover your account if you forget your password</li>
+    </ul>
+</div>
+
+<p>If you didn't create an account, you can safely ignore this email.</p>
+
+<p>Best regards,<br>The Articulate App Team</p>
+{% endblock %}

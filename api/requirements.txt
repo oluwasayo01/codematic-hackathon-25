@@ -1,0 +1,35 @@
+# Flask Core
+Flask==3.0.0
+Flask-CORS==4.0.0
+Flask-Mail==0.9.1
+python-dotenv==1.0.0
+gunicorn==21.2.0
+
+# Google Cloud Platform
+google-cloud-firestore==2.14.0
+google-cloud-storage==2.14.0
+google-auth==2.27.0
+google-api-python-client==2.108.0
+
+# Authentication & Security
+PyJWT==2.8.0
+Werkzeug==3.0.1
+
+# Email & Templates
+Jinja2==3.1.2
+
+# LLM Services
+anthropic==0.18.1
+openai==1.12.0
+
+# PDF Generation
+pdfkit==1.0.0
+plotly==5.18.0
+
+# Audio Processing
+SpeechRecognition==3.10.0
+pydub==0.25.1
+
+# Utilities
+requests==2.31.0
+python-dateutil==2.8.2

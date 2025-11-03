@@ -1,0 +1,31 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<h2>Welcome, {{ user.display_name }}! 👋</h2>
+
+<p>We're thrilled to have you join Articulate App! You've just taken the first step towards becoming a more confident and articulate speaker.</p>
+
+<h3>What to Expect:</h3>
+<ul>
+    <li>📅 <strong>21 Days of Challenges:</strong> Daily speaking prompts tailored to your skill level</li>
+    <li>🤖 <strong>AI-Powered Feedback:</strong> Get detailed analysis of your speaking performance</li>
+    <li>📊 <strong>Track Your Progress:</strong> Watch your improvement with detailed metrics and charts</li>
+    <li>🏆 <strong>Earn Achievements:</strong> Unlock badges as you hit milestones</li>
+</ul>
+
+<div style="text-align: center; margin: 30px 0;">
+    <a href="{{ frontend_url }}/challenge" class="button">Start Day 1 Challenge</a>
+</div>
+
+<h3>Tips for Success:</h3>
+<ol>
+    <li><strong>Be consistent:</strong> Try to complete your daily challenge every day</li>
+    <li><strong>Find a quiet space:</strong> Record in a place with minimal background noise</li>
+    <li><strong>Speak naturally:</strong> Don't overthink it - just be yourself</li>
+    <li><strong>Review feedback:</strong> Read your AI evaluations carefully to improve</li>
+</ol>
+
+<p>Ready to start your journey? Your first challenge is waiting!</p>
+
+<p>Best regards,<br>The Articulate App Team</p>
+{% endblock %}
