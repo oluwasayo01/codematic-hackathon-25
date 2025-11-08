@@ -33,7 +33,6 @@ instance/
 .env.*.local
 
 # GCP Credentials
-*.json
 gcp-service-account.json
 serviceAccountKey.json
 
