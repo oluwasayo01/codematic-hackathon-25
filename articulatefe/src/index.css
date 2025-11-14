@@ -1,0 +1,7 @@
+/* Intentionally minimal; Carbon and global.scss handle theming */
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
