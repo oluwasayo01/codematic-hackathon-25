@@ -11,10 +11,12 @@ class Config:
     """Base configuration"""
     
     # Flask
+    
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-this')
     DEBUG = False
     TESTING = False
     FIRESTORE_DATABASE_NAME = os.getenv('FIRESTORE_DATABASE_NAME', '(default)')
+    TIMEZONE = 'Africa/Lagos'
     
     # GCP
     GCP_PROJECT_ID = os.getenv('GCP_PROJECT_ID')

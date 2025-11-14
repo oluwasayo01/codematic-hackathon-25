@@ -8,6 +8,7 @@ class UserChallenge(BaseModel):
         super().__init__(**kwargs)
         self.user_id = kwargs.get('user_id')
         self.challenge_id = kwargs.get('challenge_id')
+        self.topic_id = kwargs.get('topic_id')
         self.day = kwargs.get('day')
         self.status = kwargs.get('status', 'pending')  # pending, completed
         self.assigned_at = kwargs.get('assigned_at')
