@@ -25,7 +25,7 @@ def get_daily_challenge():
 def get_challenge(challenge_id):
     """Get challenge by ID"""
     try:
-        from api.models.challenge import Challenge
+        from src.models.challenge import Challenge
         
         challenge = Challenge.get_by_id(challenge_id)
         

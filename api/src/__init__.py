@@ -16,7 +16,7 @@ def create_app(config_name='development'):
     # Initialize extensions
     CORS(app, resources={
         r"/api/*": {
-            "origins": ["http://localhost:3000", "https://your-frontend-domain.com"],
+            "origins": ["http://localhost:3000", "https://your-frontend-domain.com", "http://localhost:3000", "http://frontend:3000"],
             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
             "allow_headers": ["Content-Type", "Authorization"]
         }
@@ -65,6 +65,7 @@ def register_blueprints(app):
     from src.modules.web.routes.evaluations import evaluations_bp
     from src.modules.web.routes.progress import progress_bp
     from src.modules.web.routes.tasks import tasks_bp
+    from src.modules.web.routes.topics import topics_bp
     
     # Chat module blueprints
     # from src.modules.chat.routes.llm import llm_bp
@@ -77,6 +78,7 @@ def register_blueprints(app):
     app.register_blueprint(evaluations_bp, url_prefix='/api/evaluations')
     app.register_blueprint(progress_bp, url_prefix='/api/progress')
     app.register_blueprint(tasks_bp, url_prefix='/api/tasks')
+    app.register_blueprint(topics_bp, url_prefix='/api/topics')
     # app.register_blueprint(llm_bp, url_prefix='/api/llm')
 
 
