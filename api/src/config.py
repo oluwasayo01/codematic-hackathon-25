@@ -11,10 +11,12 @@ class Config:
     """Base configuration"""
     
     # Flask
+    
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-this')
     DEBUG = False
     TESTING = False
     FIRESTORE_DATABASE_NAME = os.getenv('FIRESTORE_DATABASE_NAME', '(default)')
+    TIMEZONE = 'Africa/Lagos'
     
     # GCP
     GCP_PROJECT_ID = os.getenv('GCP_PROJECT_ID')
@@ -74,6 +76,7 @@ def initialize_gcp_services():
         credentials = service_account.Credentials.from_service_account_file(
             Config.GCP_CREDENTIALS_PATH
         )
+        print(f"✓ Connected gcp project: {Config.GCP_PROJECT_ID}")
     
     # Initialize Firestore
     if credentials:
@@ -85,6 +88,7 @@ def initialize_gcp_services():
     else:
         # Use default credentials (for Cloud Run)
         db = firestore.Client(project=Config.GCP_PROJECT_ID)
+    print(f"✓ Connected to Firestore database: {Config.FIRESTORE_DATABASE_NAME}")
     
     # Initialize Cloud Storage
     if credentials:
@@ -96,8 +100,6 @@ def initialize_gcp_services():
         storage_client = storage.Client(project=Config.GCP_PROJECT_ID)
     
     bucket = storage_client.bucket(Config.STORAGE_BUCKET_NAME)
-    
-    print(f"✓ Connected to Firestore in project: {Config.GCP_PROJECT_ID}")
     print(f"✓ Connected to Cloud Storage bucket: {Config.STORAGE_BUCKET_NAME}")
     
     return {

@@ -1,0 +1,24 @@
+/* Global overrides for Carbon G100 theme to evoke IBM Quantum styling */
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
+    "Helvetica Neue", Arial, sans-serif;
+  background: var(--cds-background, #161616);
+  color: var(--cds-text-primary, #f4f4f4);
+}
+
+/* Optional: tweak link color to IBM Quantum purple accent */
+a {
+  color: #8a3ffc;
+}
+a:hover {
+  color: #a56eff;
+}

@@ -17,9 +17,10 @@ def upload_audio():
         
         # Get form data
         challenge_id = request.form.get('challenge_id')
+        topic_id = request.form.get('topic_id')
         audio_file = request.files.get('audio')
         
-        if not challenge_id or not audio_file:
+        if (not challenge_id and not topic_id) or not audio_file:
             return jsonify({'error': 'Missing required fields'}), 400
         
         # Get file extension
@@ -33,14 +34,21 @@ def upload_audio():
             file_extension=file_extension
         )
         
-        # Get user's current day
         user = User.get_by_id(user_id)
-        
+
+        # Determine day and persist topic association if provided
+        if topic_id:
+            existing = Submission.get_by_user_and_topic(user_id, topic_id)
+            next_day = (existing[-1].day + 1) if existing else 1
+        else:
+            next_day = user.current_day
+
         # Create submission record
         submission = Submission(
             user_id=user_id,
             challenge_id=challenge_id,
-            day=user.current_day,
+            topic_id=topic_id,
+            day=next_day,
             audio_url=audio_url,
             audio_blob_name=blob_name,
             transcription='',  # Will be filled by transcription service
